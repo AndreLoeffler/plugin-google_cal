@@ -48,7 +48,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
                 $h = '600';
             }
             
-            if ($disp == 'a') $disp = 'mode=AGENDA&amp;';
+            if ($disp == 'a') $disp = 'mode=AGENDA&';
             
             if (!isset($alt)) $alt = '';
 	    if (!isset($disp)) $disp = '';
