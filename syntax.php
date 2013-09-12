@@ -31,7 +31,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
         if(preg_match('/{{cal>(.*)/', $match)) {             // Hook for future features
             // Handle the simplified style of calendar tag
             $match = html_entity_decode(substr($match, 6, -2));
-            @list($url, $alt) = explode('|',$match,2);
+            @list($url, $alt, $disp) = explode('|',$match,3);
             $matches = array();
             
             // '/^\s*([^\[|]+)(?:\[(?:([^,\]]*),)?([^,\]]*)\])?(?:\s*(?:\|\s*(.*))?)?$/mD'
@@ -47,25 +47,33 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
                 $w = '98%';
                 $h = '600';
             }
+            
+            if ($disp == 'a') $disp = 'mode=AGENDA&amp;';
+            
             if (!isset($alt)) $alt = '';
-
+	    if (!isset($disp)) $disp = '';
+	    
+	    
+            
             if (!$this->getConf('js_ok') && substr($url,0,11) == 'javascript:') {
                 return array('error', $this->getLang('gcal_No_JS'));
             }
-            return array('wiki', hsc(trim("$url")), hsc(trim($alt)), hsc(trim($w)), hsc(trim($h)));
+            
+            //builds and fills the data-array
+            return array('wiki', hsc(trim("$url")), hsc(trim($alt)), hsc(trim($disp)), hsc(trim($w)), hsc(trim($h)));
         } else {
             return array('error', $this->getLang("gcal_Bad_iFrame"));  // this is an error
         } // matched {{cal>...
     }
 
     function render($mode, &$renderer, $data) {
-        list($style, $url, $alt, $w, $h) = $data;
+        list($style, $url, $alt, $disp, $w, $h) = $data;
         
         if($mode == 'xhtml'){
             // Two styles: wiki and error
             switch($style) {
                 case 'wiki':
-                    $renderer->doc .= "<iframe src='http://www.google.com/calendar/embed?mode=AGENDA&amp;src=$url&amp;height=$h&amp;title=$alt'".
+                    $renderer->doc .= "<iframe src='http://www.google.com/calendar/embed?".$disp."src=$url&amp;height=$h&amp;title=$alt'".
                 "title='$alt'  width='$w' height='$h' frameborder='0'></iframe>\n";
                     break;
                 case 'error':
