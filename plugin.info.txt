@@ -1,7 +1,7 @@
 base   googlecal
-author Kite, Christopher Smith
+author Kite, Christopher Smith, Andre Löffler
 email  kite@puzzlers.org
 date   2007-05-01
 name   Google Calendar plugin
-desc   Adds a Google Calendar iframe
+desc   Adds a Google Calendar iframe, updated for AGENDA-mode
 url    http://dokuwiki.org/plugin:google_cal

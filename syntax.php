@@ -31,6 +31,8 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
         if(preg_match('/{{cal>(.*)/', $match)) {             // Hook for future features
             // Handle the simplified style of calendar tag
             $match = html_entity_decode(substr($match, 6, -2));
+            
+            // Split on pipes, $disp is new and optional
             @list($url, $alt, $disp) = explode('|',$match,3);
             $matches = array();
             
@@ -48,12 +50,11 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
                 $h = '600';
             }
             
+            // Only parameter for $disp right now is "a" for Agenda
             if ($disp == 'a') $disp = 'mode=AGENDA&';
+            if (!isset($disp)) $disp = '';
             
             if (!isset($alt)) $alt = '';
-	    if (!isset($disp)) $disp = '';
-	    
-	    
             
             if (!$this->getConf('js_ok') && substr($url,0,11) == 'javascript:') {
                 return array('error', $this->getLang('gcal_No_JS'));

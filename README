@@ -1,8 +1,10 @@
-====== Google Calendar Plugin for DokuWiki ======
+====== Google Calendar Plugin for DokuWiki - Agenda Mode ======
 
-All documentation for the Google Calendar Plugin is available online at:
+This plugin is based on 
 
   * http://dokuwiki.org/plugin:google_cal
+    2007 by Kite <Kite@puzzlers.org>
 
-(c) 2007 by Kite <Kite@puzzlers.org>
+For changes and usage, refer to the code or contact me via email.
 
+(c) 2013 by Andre Löffler <googlecal@andre-loeffler.net>
