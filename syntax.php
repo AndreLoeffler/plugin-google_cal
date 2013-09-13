@@ -43,10 +43,10 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
                     @list($w, $h) = explode(',',$matches[2],2);
                 } else {
                     $h = $matches[2];
-                    $w = '98%';
+                    $w = '100%';
                 }
             } else {
-                $w = '98%';
+                $w = '100%';
                 $h = '600';
             }
             
