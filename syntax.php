@@ -51,7 +51,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
             }
             
             // Only parameter for $disp right now is "a" for Agenda
-            if ($disp == 'a') $disp = 'mode=AGENDA&';
+            if ($disp == 'a') $disp = 'showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&';
             if (!isset($disp)) $disp = '';
             
             if (!isset($alt)) $alt = '';
