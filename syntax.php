@@ -77,7 +77,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
                     $renderer->doc .= "<script><iframe src='http://www.google.com/calendar/embed?".$disp."src=$url&amp;height=$h&amp;title=$alt'".
                 "title='$alt'  width='$w' height='$h' frameborder='0'></iframe><script>\n".
 				      "<noscript><iframe src='http://www.google.com/calendar/embed?".$disp."src=$url&amp;height=$h&amp;title=$alt'".
-                "title='$alt'  width='$w' height='$h' frameborder='0'></iframe><noscript>;
+                "title='$alt'  width='$w' height='$h' frameborder='0'></iframe><noscript>";
                     break;
                 case 'error':
                     $renderer->doc .= "<div class='error'>$url</div>";
