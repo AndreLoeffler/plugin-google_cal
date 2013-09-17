@@ -51,7 +51,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
             }
             
             // Only parameter for $disp right now is "a" for Agenda
-            if ($disp == 'a') $disp = 'showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&wkst=1&bgcolor=%23FFFFFF&';
+            if ($disp == 'a') $disp = 'showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&wkst=1&bgcolor=%23FFFFFF&';
             if (!isset($disp)) $disp = '';
             
             if (!isset($alt)) $alt = '';
@@ -69,12 +69,6 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
 
     function render($mode, &$renderer, $data) {
         list($style, $url, $alt, $disp, $w, $h) = $data;
-        
-        if($alt == "") {
-	    $datum = date("d.m.Y");
-	    $uhrzeit = date("H:i");
-	    $alt = "Heute: ".$datum." ".$uhrzeit;
-        }
         
         if($mode == 'xhtml'){
             // Two styles: wiki and error
