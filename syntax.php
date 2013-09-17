@@ -70,7 +70,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
     function render($mode, &$renderer, $data) {
         list($style, $url, $alt, $disp, $w, $h) = $data;
         
-        if(!defined($alt)) {
+        if($alt == "") {
 	    $datum = date("d.m.Y");
 	    $uhrzeit = date("H:i");
 	    $alt = "Heute: ".$date." ".$uhrzeit;
