@@ -75,7 +75,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
             switch($style) {
                 case 'wiki':
                     $renderer->doc .= "<iframe style='display:none;' id='calframe' src='http://www.google.com/calendar/embed?".$disp."src=$url&amp;height=$h&amp;title=$alt' title='$alt'  width='$w' height='$h' frameborder='0'></iframe>\n".
-				      "<script type='text/javascript'> jQuery(document).ready(function() { jQuery('#calframe').show(); } </script>".
+				      "<script type='text/javascript'> jQuery(document).ready(function() { jQuery('#calframe').show(); }); </script>".
 				      "<noscript><iframe src='http://www.google.com/calendar/htmlembed?".$disp."src=$url&amp;height=$h&amp;title=$alt' title='$alt'  width='$w' height='$h' frameborder='0'></iframe></noscript>\n";
                     break;
                 case 'error':
