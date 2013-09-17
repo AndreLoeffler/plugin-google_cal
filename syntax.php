@@ -70,6 +70,12 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
     function render($mode, &$renderer, $data) {
         list($style, $url, $alt, $disp, $w, $h) = $data;
         
+        if(!defined($alt)) {
+	    $datum = date("d.m.Y");
+	    $uhrzeit = date("H:i");
+	    $alt = "Heute: ".$date." ".$uhrzeit;
+        }
+        
         if($mode == 'xhtml'){
             // Two styles: wiki and error
             switch($style) {
