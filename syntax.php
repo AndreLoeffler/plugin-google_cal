@@ -73,7 +73,7 @@ class syntax_plugin_googlecal extends DokuWiki_Syntax_Plugin {
         if($alt == "") {
 	    $datum = date("d.m.Y");
 	    $uhrzeit = date("H:i");
-	    $alt = "Heute: ".$date." ".$uhrzeit;
+	    $alt = "Heute: ".$datum." ".$uhrzeit;
         }
         
         if($mode == 'xhtml'){
